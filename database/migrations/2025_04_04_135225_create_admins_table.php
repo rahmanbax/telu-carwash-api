@@ -11,14 +11,18 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('users', function (Blueprint $table) {
-            $table->id('id_user');
+        Schema::create('admins', function (Blueprint $table) {
+            $table->id('id_admin');
             $table->string('username')->unique();
             $table->string('password');
             $table->string('nama');
             $table->string('no_handphone');
             $table->string('email')->unique();
-            $table->enum('status_user', ['active', 'disabled'])->default('active');
+
+            // foreign key role untuk admin
+            $table->unsignedBigInteger('id_admin_role');
+            $table->foreign('id_admin_role')->references('id_admin_role')->on('admin_role');
+
             $table->timestamps();
         });
     }
@@ -28,6 +32,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('users');
+        Schema::dropIfExists('admins');
     }
 };
