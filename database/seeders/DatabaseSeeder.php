@@ -64,9 +64,15 @@ class DatabaseSeeder extends Seeder
         // Layanan Transaksi
         DB::table('layanan_transaksi')->insert([
             [
-                'id_layanan_transaksi' => 1,
-                'nama_layanan' => 'Cuci Mobil Premium',
+                'nama_layanan' => 'Cuci Deep Motor',
                 'harga' => 15000,
+                'deskripsi' => 'Paket cuci mobil lengkap dengan poles',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'nama_layanan' => 'Cuci Mobil Premium',
+                'harga' => 60000,
                 'deskripsi' => 'Paket cuci mobil lengkap dengan poles',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -84,7 +90,7 @@ class DatabaseSeeder extends Seeder
                 'updated_at' => now(),
             ],
             [
-                'no_plat' => 'D1234ABC',
+                'no_plat' => 'B9876XYZ',
                 'jenis_kendaraan' => 'mobil',
                 'model_kendaraan' => 'Avanza 2020',
                 'id_user' => 1,
@@ -106,12 +112,20 @@ class DatabaseSeeder extends Seeder
         // Transaksi
         DB::table('transaksi')->insert([
             [
-                'id_transaksi' => 1,
                 'id_user' => 1,
                 'id_admin' => 1,
                 'id_kendaraan' => 1,
                 'id_layanan_transaksi' => 1,
                 'id_status_transaksi' => 1,
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'id_user' => 1,
+                'id_admin' => 1,
+                'id_kendaraan' => 2,
+                'id_layanan_transaksi' => 2,
+                'id_status_transaksi' => 3,
                 'created_at' => now(),
                 'updated_at' => now(),
             ],

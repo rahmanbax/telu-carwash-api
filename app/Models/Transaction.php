@@ -24,32 +24,17 @@ class Transaction extends Model
         'id_status_transaksi',
     ];
 
-    // Relasi ke User
-    public function user()
-    {
-        return $this->belongsTo(User::class, 'id_user', 'id_user');
-    }
-
-    // Relasi ke Admin
-    public function admin()
-    {
-        return $this->belongsTo(Admin::class, 'id_admin', 'id_admin');
-    }
-
-    // Relasi ke Kendaraan
     public function kendaraan()
     {
         return $this->belongsTo(Kendaraan::class, 'id_kendaraan', 'id_kendaraan');
     }
 
-    // Relasi ke LayananTransaksi
     public function layananTransaksi()
     {
         return $this->belongsTo(LayananTransaksi::class, 'id_layanan_transaksi', 'id_layanan_transaksi');
     }
 
-    // Relasi ke StatusTransaksi
-    public function status()
+    public function statusTransaksi()
     {
         return $this->belongsTo(StatusTransaksi::class, 'id_status_transaksi', 'id_status_transaksi');
     }
